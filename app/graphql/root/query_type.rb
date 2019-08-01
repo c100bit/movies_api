@@ -1,5 +1,5 @@
-module Types
-  class QueryType < Types::BaseObject
+module Root
+  class QueryType < Types::Base::Object
 
     field :movies, [Types::MovieType], null: false,
       description: "Get all movies"

@@ -11,11 +11,11 @@ module Mutations
 
     type Types::MovieType
 
-    def resolve(id:, params)
+    def resolve(id:, params:)
       movie = Movie.find(id)
       movie.update(params)
       movie
     end
-    
+
   end
 end

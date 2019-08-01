@@ -1,4 +1,4 @@
 class MoviesApiSchema < GraphQL::Schema
-  mutation(Types::MutationType)
-  query(Types::QueryType)
+  mutation(Root::MutationType)
+  query(Root::QueryType)
 end

@@ -1,5 +1,5 @@
 module Types
-  class CountryType < Types::BaseObject
+  class CountryType < Types::Base::Object
     field :id, ID, null: false
     field :title, String, null: false
     field :movies, [Types::MovieType], null: true

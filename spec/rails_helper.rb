@@ -88,3 +88,7 @@ RSpec.configure do |config|
 end
 
 class ActiveModel::SecurePassword::InstanceMethodsOnActivation; end;
+
+FactoryBot::SyntaxRunner.class_eval do
+  include ActionDispatch::TestProcess
+end

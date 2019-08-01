@@ -11,6 +11,10 @@ RSpec.describe Genre, type: :model do
     it { should validate_uniqueness_of(:title).case_insensitive }
   end
 
+  context 'when associations' do
+    it { should have_and_belong_to_many(:movies) }
+  end
+
   context "when create" do
     let(:genre) { create(:genre) } 
     it { expect(genre.persisted?).to eq(true) }

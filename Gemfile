@@ -15,7 +15,7 @@ gem 'puma', '~> 3.11'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'active_storage_validations', '~> 0.7.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'graphql', '~> 1.9.4'
@@ -29,7 +29,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri]
   gem 'pry-rails', '~> 0.3.9'
-  gem 'faker', '~> 1.9.3'
+  gem 'faker', '~> 2.1.0'
 end
 
 group :development do

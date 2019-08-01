@@ -11,6 +11,10 @@ RSpec.describe Country, type: :model do
     it { should validate_uniqueness_of(:title).case_insensitive }
   end
 
+  context 'when associations' do
+    it { should have_many(:movies) }
+  end
+  
   context "when create" do
     let(:country) { create(:country) }
     it { expect(country.persisted?).to eq(true) }

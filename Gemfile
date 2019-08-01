@@ -18,7 +18,7 @@ gem 'puma', '~> 3.11'
 gem 'active_storage_validations', '~> 0.7.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'graphql', '~> 1.9.4'
+gem 'graphql', '~> 1.9.9'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -47,7 +47,8 @@ group :test do
   gem 'factory_bot_rails', '~> 5.0.2'
   gem 'rspec-rails', '~> 3.8.2'
   gem 'shoulda-matchers', '~> 4.0.1'
-  gem 'rspec-graphql_matchers', '~> 0.7.1'
+  gem 'rspec-graphql_matchers', github: 'khamusa/rspec-graphql_matchers',
+    branch: 'chore/bump-to-1.9'
 end 
 
 

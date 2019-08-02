@@ -12,7 +12,7 @@ module Mutations
     type Types::MovieType
 
     def resolve(params)
-      Movie.create(params)
+      Movie.create!(params)
     end
   end
 end

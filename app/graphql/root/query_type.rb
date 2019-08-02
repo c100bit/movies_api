@@ -9,6 +9,10 @@ module Root
       resolver: Resolvers::GetOneMovie,
       description: "Get movie by id"
 
+    field :order_movies,
+      resolver: Resolvers::OrderMovies,
+      description: "Order movies (by: year/rate, asc: true/false)"
+
     field :countries, 
       resolver: Resolvers::GetAllCountries,
       description: "Get all countries"

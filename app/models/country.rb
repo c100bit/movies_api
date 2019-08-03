@@ -3,10 +3,10 @@ class Country < ApplicationRecord
   
   has_many :movies
   
-  #capitalize first letter
+  # capitalize first letter
   def title=(val)
     super(val.capitalize) if val
   end
 
 end
- 
+    

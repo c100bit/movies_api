@@ -8,14 +8,17 @@ RSpec.describe Genre, type: :model do
   
   context 'when validations' do
     it { should validate_presence_of(:title) }
-    it { should validate_uniqueness_of(:title).case_insensitive }
-  end
-
+    describe 'uniqueness' do
+      subject { build(:genre) }  
+      it { should validate_uniqueness_of(:title).case_insensitive }
+    end
+  end 
+ 
   context 'when associations' do
     it { should have_and_belong_to_many(:movies) }
   end
 
-  context "when create" do
+  context "when creates" do
     let(:genre) { create(:genre) } 
     it { expect(genre.persisted?).to eq(true) }
     it { expect(genre.title).to eq(genre.title.capitalize)}

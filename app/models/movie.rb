@@ -11,6 +11,17 @@ class Movie < ApplicationRecord
   validates :text, presence: true
   validates :rate, presence: true, 
     numericality: { less_than_or_equal_to: 10, greater_than_or_equal_to: 0 }
+  validates :image, attached: true, 
+    content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
-  validates :image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+  scope :filter_by, -> (field, val) { where("#{field}": val).order(:id) }
+
+  scope :filter_by_genres, -> (ids) do
+    joins(:genres)
+    .where(genres: { id: ids })
+    .having("COUNT(DISTINCT genres.id) = #{ids.count}")
+    .group('id').order(:id).distinct
+  end
+ 
+
 end

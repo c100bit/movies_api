@@ -47,7 +47,7 @@ group :test do
   gem 'database_cleaner', '~> 1.7.0'
   gem 'factory_bot_rails', '~> 5.0.2'
   gem 'rspec-rails', '~> 3.8.2'
-  gem 'shoulda-matchers', '~> 4.0.1'
+  gem 'shoulda-matchers', '~> 4.1.2'
   gem 'rspec-graphql_matchers', github: 'khamusa/rspec-graphql_matchers',
     branch: 'chore/bump-to-1.9'
 end 

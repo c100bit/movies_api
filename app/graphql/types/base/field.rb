@@ -1,7 +1,7 @@
 module Types
   module Base  
     class Field < GraphQL::Schema::Field
-      argument_class Types::BaseArgument
+      argument_class Types::Base::Argument
 
       def resolve_field(obj, args, ctx)
         resolve(obj, args, ctx)

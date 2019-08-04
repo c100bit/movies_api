@@ -7,7 +7,7 @@ module Mutations
     argument :rate, Integer, required: true
     argument :country_id, ID, required: true
     argument :genre_ids, [ID], required: true
-    argument :image, [ApolloUploadServer::Upload], required: true
+    argument :image, ApolloUploadServer::Upload, required: true
 
     type Types::MovieType
 

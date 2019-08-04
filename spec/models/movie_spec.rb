@@ -32,13 +32,22 @@ RSpec.describe Movie, type: :model do
     before(:all) { create(:movie_with_genres) }
 
     describe '.filter_by' do
+      it 'returns movies filtered by year' do
+        year = 5000
+        movies_db = create_list(:movie, 3, year: year)     
+        filtered = described_class.filter_by('year', year)
+        expect(filtered).to match_array movies_db
+      end
+    end
+    
+   describe '.filter_title' do
       it 'returns movies filtered by title' do
         title = 'Filtered title'
         movies_db = create_list(:movie, 3, title: title)     
-        filtered = described_class.filter_by('title', title)
-        expect(filtered).to eq movies_db 
+        filtered = described_class.filter_by_title(title)
+        expect(filtered).to match_array movies_db
       end
-    end
+    end 
 
     describe '.filter_by_genres' do
       it 'returns movies filtered by genres' do

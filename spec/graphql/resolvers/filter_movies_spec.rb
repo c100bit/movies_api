@@ -13,7 +13,7 @@ Rspec.describe Resolvers::FilterMovies do
       title = Faker::Lorem.sentence
       create_list(:movie, 3, title: title)
       query = subject.resolve(field: 'title', val: title)
-      movies_db = Movie.filter_by('title', title)
+      movies_db = Movie.filter_by_title(title)
       expect(query).to eq movies_db
     end
  

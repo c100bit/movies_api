@@ -1,7 +1,7 @@
 include ActionDispatch::TestProcess
 
-# 10.times { Country.create(title: Faker::Address.country) }
-# 10.times { Genre.create(title: Faker::Book.genre) }
+10.times { Country.create(title: Faker::Address.country) }
+10.times { Genre.create(title: Faker::Book.genre) }
 
 image_path = Rails.root.join('spec', 'factories', 'assets', 'movie.png')
 

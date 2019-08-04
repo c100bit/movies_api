@@ -9,7 +9,9 @@ module Resolvers
       case field
       when 'genre_ids'
         Movie.filter_by_genres(val.split(','))
-      when 'title', 'year', 'country_id', 'rate'
+      when 'title'
+        Movie.filter_by_title(val)
+      when 'year', 'country_id', 'rate'
         Movie.filter_by(field, val) 
       else
         Movie.all

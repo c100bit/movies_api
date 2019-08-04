@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_081832) do
+ActiveRecord::Schema.define(version: 2019_08_04_092641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,10 @@ ActiveRecord::Schema.define(version: 2019_08_01_081832) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "year", null: false
+    t.index "lower((title)::text)", name: "index_movies_on_lower_title"
     t.index ["country_id"], name: "index_movies_on_country_id"
+    t.index ["rate"], name: "index_movies_on_rate"
+    t.index ["year"], name: "index_movies_on_year"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

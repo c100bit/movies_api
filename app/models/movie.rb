@@ -14,7 +14,9 @@ class Movie < ApplicationRecord
   validates :image, attached: true, 
     content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
-  scope :filter_by, -> (field, val) { where("#{field}": val).order(:id) }
+  scope :filter_by, -> (field, val) { where("#{field}": val).order(field) }
+
+  scope :filter_by_title, -> (val) { where("lower(title) = ?", val.downcase) }
 
   scope :filter_by_genres, -> (ids) do
     joins(:genres)

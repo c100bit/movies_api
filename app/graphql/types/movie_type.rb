@@ -6,7 +6,7 @@ module Types
     field :year, Integer, null: false
     field :rate, Integer, null: false
     field :text, String, null: false
-    field :image, String, null: false
+    field :image_url, String, null: false
     field :country, Types::CountryType, null: false
     field :genres, [Types::GenreType], null: true
   end

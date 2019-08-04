@@ -57,8 +57,15 @@ RSpec.describe Movie, type: :model do
         expect(filtered).to eq movies_db 
       end
     end
-
+ 
   end
 
+  describe '#image_url' do
+    it 'returns image path' do
+      movie = create(:movie)
+      image_name = movie.image.blob.filename.to_s
+      expect(movie.image_url).to end_with("/#{image_name}")
+    end
+  end
 end
  

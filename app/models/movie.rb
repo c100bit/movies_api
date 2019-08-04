@@ -1,4 +1,6 @@
 class Movie < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   belongs_to :country
   has_and_belongs_to_many :genres
 
@@ -24,6 +26,9 @@ class Movie < ApplicationRecord
     .having("COUNT(DISTINCT genres.id) = #{ids.count}")
     .group('id').order(:id).distinct
   end
- 
+
+  def image_url
+     rails_blob_path(image, only_path: true)
+  end
 
 end

@@ -7,7 +7,6 @@ module Types
     field :rate, Integer, null: false
     field :text, String, null: false
     field :image_url, String, null: false
-    field :genres, [Types::GenreType], null: true
 
     field :country, Types::CountryType, null: false, resolve: -> (movie, args, ctx) do
       BatchLoader::GraphQL.for(movie.country_id).batch do |country_ids, loader|

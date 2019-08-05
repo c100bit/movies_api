@@ -26,6 +26,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rack-cors'
 gem 'apollo_upload_server', '2.0.0.beta.3'
 
+gem 'batch-loader', '~> 1.4.1'
+
 gem 'faker', '~> 2.1.0'
 
 group :development, :test do

@@ -69,6 +69,7 @@ GEM
     apollo_upload_server (2.0.0.beta.3)
       graphql (>= 1.8)
       rails (>= 4.2)
+    batch-loader (1.4.1)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
@@ -226,6 +227,7 @@ PLATFORMS
 DEPENDENCIES
   active_storage_validations (~> 0.7.1)
   apollo_upload_server (= 2.0.0.beta.3)
+  batch-loader (~> 1.4.1)
   bootsnap (>= 1.4.2)
   byebug
   database_cleaner (~> 1.7.0)

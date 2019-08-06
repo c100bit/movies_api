@@ -46,7 +46,7 @@ RSpec.configure do |config|
 
   # set up factory bot
   config.include FactoryBot::Syntax::Methods
-
+  config.include JsonapiExpectations, type: :controller
   # set up database cleaner
   #start by truncating all the tables but then use the faster transaction strategy the rest of the time.
   config.before(:suite) do

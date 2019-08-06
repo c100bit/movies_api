@@ -3,7 +3,6 @@ class Movie < ApplicationRecord
 
   belongs_to :country
   has_and_belongs_to_many :genres
-
   has_one_attached :image
   
   validates :title, presence: true

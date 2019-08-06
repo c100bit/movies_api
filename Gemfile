@@ -29,6 +29,7 @@ gem 'apollo_upload_server', '2.0.0.beta.3'
 gem 'batch-loader', '~> 1.4.1'
 
 gem 'faker', '~> 2.1.0'
+gem 'fast_jsonapi', '~> 1.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +48,7 @@ end
 
 
 group :test do
+  gem 'jsonapi_expectations', '~> 0.3.0'
   gem 'database_cleaner', '~> 1.7.0'
   gem 'factory_bot_rails', '~> 5.0.2'
   gem 'rspec-rails', '~> 3.8.2'

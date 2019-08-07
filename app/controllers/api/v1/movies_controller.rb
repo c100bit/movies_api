@@ -10,7 +10,7 @@ module Api::V1
         @movies = _filter_by(params[:filter], params[:val])
       end
       @movies = Movie.all unless @movies
-      render json: @movies.with_attached_image
+      render json: @movies.with_includes_relations
     end
 
     # GET /v1/movies/1
@@ -57,7 +57,8 @@ module Api::V1
       return if val.nil?
       case field
       when 'genre_ids'
-        Movie.filter_by_genres(val.split(','))
+        ids = Movie.filter_by_genres(val.split(',')).ids
+        Movie.where(id: ids)
       when 'title'
         Movie.filter_by_title(val)
       when 'year', 'country_id', 'rate'

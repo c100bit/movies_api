@@ -26,6 +26,10 @@ class Movie < ApplicationRecord
     .group('id').order(:id).distinct
   end
 
+  scope :with_includes_relations, -> do 
+    includes(:country, :genres, image_attachment: :blob)
+  end
+
   def image_url
      rails_blob_path(image, only_path: true)
   end

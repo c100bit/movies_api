@@ -4,7 +4,12 @@ module Api::V1
 
     # GET /v1/movies
     def index
-      render json: Movie.all
+      if params[:order].present?
+        @movies = _order_by(params[:order], params[:asc]) #desc default
+      elsif params[:filter].present?
+        @movies = _filter_by(params[:filter], params[:val])
+      end
+      render json: @movies ? @movies : Movie.all
     end
 
     # GET /v1/movies/1
@@ -39,6 +44,25 @@ module Api::V1
     end
 
   private
+
+    def _order_by field, asc
+      if field == 'year' || field == 'rate'
+        direction = asc ? 'ASC' : 'DESC'
+        Movie.order("#{field} #{direction}")
+      end
+    end
+
+    def _filter_by field, val
+      return if val.nil?
+      case field
+      when 'genre_ids'
+        Movie.filter_by_genres(val.split(','))
+      when 'title'
+        Movie.filter_by_title(val)
+      when 'year', 'country_id', 'rate'
+        Movie.filter_by(field, val) 
+      end
+    end
 
     def set_movie
       @movie = Movie.find(params[:id])

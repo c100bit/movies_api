@@ -9,7 +9,8 @@ module Api::V1
       elsif params[:filter].present?
         @movies = _filter_by(params[:filter], params[:val])
       end
-      render json: @movies ? @movies : Movie.all
+      @movies = Movie.all unless @movies
+      render json: @movies
     end
 
     # GET /v1/movies/1

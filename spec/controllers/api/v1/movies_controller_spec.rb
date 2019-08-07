@@ -36,6 +36,22 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
       expect_relationship key: 'genres'
     end
 
+    context 'when including' do
+      let(:genres) { create_list(:genre, 3) }
+      let(:country) { create(:country) } 
+      let!(:movies) { create_list(:movie, 3, country: country, genres: genres) }
+ 
+      it 'returns country' do
+        get :index, params: { include: 'country' }
+        expect_record country, type: 'country', included: true
+      end
+
+      it 'returns genres' do
+        get :index, params: { include: 'genres' }
+        expect_record genres.first, type: 'genre', included: true
+      end
+    end
+ 
     context 'when movies are sorted' do
       let(:items_count) { 5 }
       let!(:movies) { create_list(:movie, items_count) }

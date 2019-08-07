@@ -1,6 +1,7 @@
 # README
 
 /api/v1/countries - Fetch all countries
+
 /api/v1/genres - Fetch all genres
 
 /api/v1/movies - Rest-full movies
@@ -13,6 +14,11 @@ Sorting movies
 
 Filtering movies
 /api/v1/movies?filter=(title|year|country_id|rate|genre_ids),val=(value) (genre_ids = 1,2,3)
+
+
+Movie(title, local_title, rate, text, country, year, image, genres)
+Country(title)
+Genre(title)
 
 
 * fast_jsonapi for serializations

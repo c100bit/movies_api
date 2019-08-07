@@ -13,3 +13,7 @@ Sorting movies
 
 Filtering movies
 /api/v1/movies?filter=(title|year|country_id|rate|genre_ids),val=(value) (genre_ids = 1,2,3)
+
+
+* fast_jsonapi for serializations
+* jsonapi_expectations for rspec

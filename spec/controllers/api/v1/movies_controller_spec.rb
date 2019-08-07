@@ -8,7 +8,7 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
     let(:movie) { movies.first }
 
     before(:each) { get :index }
-
+ 
     it 'returns status ok' do
       expect_status :ok
     end

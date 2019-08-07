@@ -10,7 +10,7 @@ module Api::V1
         @movies = _filter_by(params[:filter], params[:val])
       end
       @movies = Movie.all unless @movies
-      render json: @movies
+      render json: @movies.with_attached_image
     end
 
     # GET /v1/movies/1

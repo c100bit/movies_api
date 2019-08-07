@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+/api/v1/countries - Fetch all countries
+/api/v1/genres - Fetch all genres
 
-Things you may want to cover:
+/api/v1/movies - Rest-full movies
 
-* Ruby version
+Fetching movies
+/api/v1/movies?include=genres,country - Fetch all movies with relationships
 
-* System dependencies
+Sorting movies
+/api/v1/movies?order=(year|rate),asc=true (desc - default)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Filtering movies
+/api/v1/movies?filter=(title|year|country_id|rate|genre_ids),val=(value) (genre_ids = 1,2,3)

@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_04_092641) do
+ActiveRecord::Schema.define(version: 2019_08_08_104818) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -66,9 +67,10 @@ ActiveRecord::Schema.define(version: 2019_08_04_092641) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "year", null: false
-    t.index "lower((title)::text)", name: "index_movies_on_lower_title"
     t.index ["country_id"], name: "index_movies_on_country_id"
+    t.index ["local_title"], name: "trgm_index_movies_local_title", opclass: :gin_trgm_ops, using: :gin
     t.index ["rate"], name: "index_movies_on_rate"
+    t.index ["title"], name: "trgm_index_movies_title", opclass: :gin_trgm_ops, using: :gin
     t.index ["year"], name: "index_movies_on_year"
   end
 

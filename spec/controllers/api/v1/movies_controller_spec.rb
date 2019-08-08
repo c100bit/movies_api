@@ -87,9 +87,9 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
       end
       
       it 'returns movies filtered by title' do
-        title = Faker::Lorem.sentence
+        title = "#{Faker::Lorem.sentence} c!100bit #{Faker::Lorem.sentence}"
         create_list(:movie, 3, title: title)
-        get :index, params: { filter: 'title', val: title }
+        get :index, params: { filter: 'title', val: '!100bi' }
         movies_db = Movie.filter_by_title(title)
         expect(json_body[:data].pluck(:id).map(&:to_i)).to eq movies_db.pluck(:id)
       end

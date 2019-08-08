@@ -29,7 +29,7 @@ RSpec.describe Movie, type: :model do
   end
 
   context 'when filteres' do
-    before(:all) { create(:movie_with_genres) }
+    before(:all) { create_list(:movie_with_genres, 5) }
 
     describe '.filter_by' do
       it 'returns movies filtered by year' do
@@ -40,12 +40,19 @@ RSpec.describe Movie, type: :model do
       end
     end
     
-   describe '.filter_title' do
+   describe '.filter_by_title' do
       it 'returns movies filtered by title' do
-        title = 'Filtered title'
+        title = 'Filtered by super c!100bit title'
         movies_db = create_list(:movie, 3, title: title)     
-        filtered = described_class.filter_by_title(title)
-        expect(filtered).to match_array movies_db
+        filtered = described_class.filter_by_title('!100bi')
+        expect(filtered).to match_array movies_db 
+      end
+
+      it 'returns movies filtered by local_title' do
+        title = 'Filtered by super c!100bit title'
+        movies_db = create_list(:movie, 3, local_title: title)     
+        filtered = described_class.filter_by_title('!100bi')
+        expect(filtered).to match_array movies_db 
       end
     end 
 

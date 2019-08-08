@@ -17,7 +17,10 @@ class Movie < ApplicationRecord
 
   scope :filter_by, -> (field, val) { where("#{field}": val).order(field) }
 
-  scope :filter_by_title, -> (val) { where("lower(title) = ?", val.downcase) }
+  scope :filter_by_title, -> (val) do
+    search = "%#{val}%"
+    where("title ILIKE ? OR local_title ILIKE ?", search, search)
+  end
 
   scope :filter_by_genres, -> (ids) do
     joins(:genres)
